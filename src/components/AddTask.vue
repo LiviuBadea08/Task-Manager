@@ -26,35 +26,35 @@
 export default {
   name: "AddTask",
   data() {
-      return {
-          text: "",
-          day: "",
-          reminder: false,
-      }
+    return {
+      text: "",
+      day: "",
+      reminder: false,
+    };
   },
   methods: {
-      onSubmit(e) {
-          e.preventDefault()
+    onSubmit(e) {
+      e.preventDefault();
 
-          if(!this.text) {
-              alert("Pleade add a task")
-              return
-          }
-
-          const newTask = {
-              id: Math.floor(Math.random() * 100000),
-              text: this.text,
-              day: this.day,
-              reminder: this.reminder
-          }
-
-          this.$emit("add-task", newTask)
-
-          this.text = ""
-          this.day = ""
-          this.reminder = false
+      if (!this.text) {
+        alert("Pleade add a task");
+        return;
       }
-  }
+
+      const newTask = {
+        // id: Math.floor(Math.random() * 100000),
+        text: this.text,
+        day: this.day,
+        reminder: this.reminder,
+      };
+
+      this.$emit("add-task", newTask);
+
+      this.text = "";
+      this.day = "";
+      this.reminder = false;
+    },
+  },
 };
 </script>
 
